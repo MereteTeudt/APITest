@@ -1,4 +1,5 @@
-﻿using System;
+﻿using APITest.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,9 @@ namespace APITest.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            WeatherModel model = new WeatherModel();
+            WeatherResultModel weatherResult = WeatherModel.LoadWeatherInfo();
+            return View("Index", weatherResult);
         }
 
         public ActionResult About()
